@@ -6,7 +6,7 @@ Search the [Laravel Nova documentation](https://nova.laravel.com/docs) using [Al
 
 ## Installation
 
-1. [Download the latest version](https://github.com/techouse/nova-docs-alfred-workflow/releases/latest)
+1. [Download the latest version](https://github.com/techouse/alfred-nova-docs/releases/latest)
 2. Install the workflow by double-clicking the `.alfredworkflow` file
 3. You can add the workflow to a category, then click "Import" to finish importing. You'll now see the workflow listed in the left sidebar of your Workflows preferences pane.
 
