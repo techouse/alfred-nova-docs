@@ -1,5 +1,9 @@
 # Laravel Nova Docs Workflow for Alfred
 
+![GitHub release](https://img.shields.io/github/release/techouse/alfred-nova-docs.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/techouse/alfred-nova-docs/total.svg)
+![GitHub](https://img.shields.io/github/license/techouse/alfred-nova-docs.svg)
+
 Search the [Laravel Nova documentation](https://nova.laravel.com/docs) using [Alfred](https://www.alfredapp.com/).
 
 ![demo](demo.gif)
