@@ -6,14 +6,11 @@ from __future__ import print_function, unicode_literals, absolute_import
 import functools
 import re
 import sys
-from HTMLParser import HTMLParser
+from urllib import quote_plus
 
 from algoliasearch.search_client import SearchClient
 from config import Config
-from workflow import Workflow, ICON_WARNING, ICON_INFO
-
-# h.unescape() turns HTML escapes back into real characters
-h = HTMLParser()
+from workflow import Workflow, ICON_INFO
 
 # Algolia client
 client = SearchClient.create(Config.ALGOLIA_APP_ID, Config.ALGOLIA_SEARCH_ONLY_API_KEY)
@@ -38,7 +35,7 @@ def handle_result(api_dict):
     result = {}
 
     for key in {"objectID", "title", "url"}:
-        result[key] = h.unescape(api_dict[key])
+        result[key] = api_dict[key]
 
     return result
 
@@ -77,15 +74,27 @@ def main(wf):
 
     key = cache_key(query)
 
-    results = wf.cached_data(
-        key, functools.partial(search, query), max_age=Config.CACHE_MAX_AGE
-    )
+    results = [
+        handle_result(result)
+        for result in wf.cached_data(
+            key, functools.partial(search, query), max_age=Config.CACHE_MAX_AGE
+        )
+    ]
 
     log.debug("{} results for {!r}".format(len(results), query))
     # Show results
     if not results:
+        url = "https://www.google.com/search?q={}".format(
+            quote_plus('"Laravel Nova" {}'.format(query))
+        )
         wf.add_item(
-            "No matching answers found", "Try a different query", icon=ICON_WARNING
+            "No matching answers found",
+            "Try a and search Google?",
+            valid=True,
+            arg=url,
+            copytext=url,
+            quicklookurl=url,
+            icon=Config.GOOGLE_ICON,
         )
 
     for result in results:

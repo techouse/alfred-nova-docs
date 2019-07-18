@@ -8,6 +8,7 @@ class Config(object):
     CACHE_MAX_AGE = 20  # seconds
     # Icon
     NOVA_ICON = "icon.png"
+    GOOGLE_ICON = "google.png"
     # Algolia credentials
     ALGOLIA_APP_ID = "6EVZSN4WQD"
     ALGOLIA_SEARCH_ONLY_API_KEY = "bf1eceffbd547a1443da21aab145c2d5"
