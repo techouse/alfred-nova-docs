@@ -9,7 +9,10 @@ class Config(object):
     # Icon
     NOVA_ICON = "icon.png"
     GOOGLE_ICON = "google.png"
+    # supported docs
+    SUPPORTED_NOVA_VERSIONS = {"v2", "v1"}
+    DEFAULT_NOVA_VERSION = "2"
     # Algolia credentials
-    ALGOLIA_APP_ID = "6EVZSN4WQD"
-    ALGOLIA_SEARCH_ONLY_API_KEY = "bf1eceffbd547a1443da21aab145c2d5"
-    ALGOLIA_SEARCH_INDEX = "nova-docs-1.0"
+    ALGOLIA_APP_ID = "WODHKE4WZG"
+    ALGOLIA_SEARCH_ONLY_API_KEY = "7456cdd91ba8d4f87846549697397759"
+    ALGOLIA_SEARCH_INDEX = "laravel_nova"

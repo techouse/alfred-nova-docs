@@ -24,15 +24,23 @@ nova resource
 
 Either press `⌘Y` to Quick Look the result, or press `<enter>` to open it in your web browser.
 
+## Changing Branches
+
+The workflow supports searching the documentation of both branches, `v1` and `v2`.
+By default it searches the `v2` branch. To search branch `v1` simply type `v1` **anywhere** in your query, like so:
+
+```
+nova resource v1
+```
+
 ### Note
 
 Originally I wanted this to be a fork of [Bill Clark's Laravel Nova Documentation Search Workflow for Alfred](https://github.com/billrobclark/alfred-novadoc-search) which has a 
 major issue that [inhibits a user from opening a web browser window once they press `<enter>`](https://github.com/billrobclark/alfred-novadoc-search/issues/1). And because I worked
 a lot with Laravel Nova recently I figured it would be nice to still have a working Alfred workflow for Laravel Nova's docs. But since Bill's original Alfred workflow was written in 
-PHP and I wrote mine in Python a pull request would not have made much sense. However a thing I did take from that repository is the [Algolia search index](https://github.com/billrobclark/alfred-novadoc-search/blob/master/nova-search.php#L11).
-This means that both repositories use the __same__ Algolia indices and return the same results. This should leave the end user with the same experience.
-
-Thank you for the Algolia indices [Bill](https://github.com/billrobclark) :innocent: :beers:
+PHP and I wrote mine in Python a pull request would not have made much sense.
 
 Built using [Alfred-Workflow](https://github.com/deanishe/alfred-workflow).
 The search is powered by [Algolia search](https://www.algolia.com).
+
+The index for Algolia was compiled from the [laravel/nova-docs](https://github.com/laravel/nova-docs) documentation repo using a [simple Python script](https://github.com/techouse/laravel-nova-docs-parser) I wrote.
