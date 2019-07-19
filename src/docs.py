@@ -6,6 +6,7 @@ from __future__ import print_function, unicode_literals, absolute_import
 import functools
 import re
 import sys
+from textwrap import wrap
 from urllib import quote_plus
 
 from algoliasearch.search_client import SearchClient
@@ -112,7 +113,7 @@ def main(wf):
     # Show results
     if not results:
         url = "https://www.google.com/search?q={}".format(
-            quote_plus("Laravel Nova {}".format(query))
+            quote_plus('"Laravel Nova" {}'.format(query))
         )
         wf.add_item(
             "No matching answers found",
@@ -125,12 +126,17 @@ def main(wf):
         )
 
     for result in results:
+        subtitle = wrap(result["content"], width=75)[0]
+        if len(result["content"]) > 75:
+            subtitle += " ..."
+
         wf.add_item(
             uid=result["objectID"],
             title=result["title"],
+            subtitle=subtitle,
             arg=result["permalink"],
             valid=True,
-            largetext=result["title"],
+            largetext=result["content"],
             copytext=result["permalink"],
             quicklookurl=result["permalink"],
             icon=Config.NOVA_ICON,

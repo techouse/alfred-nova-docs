@@ -39,6 +39,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -77,7 +79,7 @@
 			<key>uid</key>
 			<string>2B939AF4-1A27-4D41-96FE-E75C901C780F</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -100,7 +102,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Search the Laravel Nova documentation using Alfred</string>
 	<key>uidata</key>
 	<dict>
 		<key>2B939AF4-1A27-4D41-96FE-E75C901C780F</key>
@@ -118,7 +120,11 @@
 			<integer>10</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.7</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/techouse</string>
 </dict>
 </plist>
