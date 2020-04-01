@@ -26,11 +26,11 @@ Either press `⌘Y` to Quick Look the result, or press `<enter>` to open it in y
 
 ## Changing Branches
 
-The workflow supports searching the documentation of both branches, `v1` and `v2`.
-By default it searches the `v2` branch. To search branch `v1` simply type `v1` **anywhere** in your query, like so:
+The workflow supports searching the documentation of all branches: `v1`, `v2` and `v3`.
+By default it searches the `v3` branch. To search branch `v2` simply type `v2` **anywhere** in your query, like so:
 
 ```
-nova resource v1
+nova resource v2
 ```
 
 ### Note
