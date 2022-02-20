@@ -41,6 +41,4 @@ a lot with Laravel Nova recently I figured it would be nice to still have a work
 PHP and I wrote mine in Python a pull request would not have made much sense.
 
 Built using [Alfred-Workflow](https://github.com/deanishe/alfred-workflow).
-The search is powered by [Algolia search](https://www.algolia.com).
-
-The index for Algolia was compiled from the [laravel/nova-docs](https://github.com/laravel/nova-docs) documentation repo using a [simple Python script](https://github.com/techouse/laravel-nova-docs-parser) I wrote.
+The lightning fast search is powered by [Algolia](https://www.algolia.com) using the same index as the official [Laravel Nova Docs](https://nova.laravel.com/docs/) website.
