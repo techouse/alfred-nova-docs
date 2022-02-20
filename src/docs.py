@@ -6,6 +6,8 @@ from __future__ import print_function, unicode_literals, absolute_import
 import functools
 import re
 import sys
+from collections import OrderedDict
+from HTMLParser import HTMLParser
 from textwrap import wrap
 from urllib import quote_plus
 
@@ -35,16 +37,18 @@ def handle_result(api_dict):
     """Extract relevant info from API result"""
     result = {}
 
-    for key in {
-        "objectID",
-        "version",
-        "title",
-        "id",
-        "permalink",
-        "content",
-        "categories",
-    }:
-        result[key] = api_dict[key]
+    for key in {"objectID", "hierarchy", "content", "url", "anchor"}:
+        if key == "hierarchy":
+            api_dict[key] = OrderedDict(sorted(api_dict[key].items(), reverse=True))
+            for hierarchy_key, hierarchy_value in api_dict[key].items():
+                if hierarchy_value:
+                    result["title"] = hierarchy_value
+                    break
+        elif key == "content" and "content" in api_dict and api_dict["content"] is not None:
+            html_parser = HTMLParser()
+            result[key] = html_parser.unescape(api_dict[key])
+        else:
+            result[key] = api_dict[key]
 
     return result
 
@@ -54,7 +58,7 @@ def search(query=None, version=Config.DEFAULT_NOVA_VERSION, limit=Config.RESULT_
         results = index.search(
             query,
             {
-                "facetFilters": ["version:{}".format(version)],
+                "facetFilters": ["version:{}.0.0".format(version)],
                 "page": 0,
                 "hitsPerPage": limit,
             },
@@ -130,19 +134,22 @@ def main(wf):
         )
 
     for result in results:
-        subtitle = wrap(result["content"], width=75)[0]
-        if len(result["content"]) > 75:
-            subtitle += " ..."
+        if "content" in result and result["content"] is not None:
+            subtitle = wrap(result["content"], width=75)[0]
+            if len(result["content"]) > 75:
+                subtitle += " ..."
+        else:
+            subtitle = ""
 
         wf.add_item(
             uid=result["objectID"],
             title=result["title"],
             subtitle=subtitle,
-            arg=result["permalink"],
+            arg=result["url"],
             valid=True,
-            largetext=result["content"],
-            copytext=result["permalink"],
-            quicklookurl=result["permalink"],
+            largetext=result["title"],
+            copytext=result["url"],
+            quicklookurl=result["url"],
             icon=Config.NOVA_ICON,
         )
         # log.debug(result)
