@@ -13,6 +13,7 @@ dependencies:
   algolia: ^1.0.4
   args: ^2.3.0
   html_unescape: ^2.0.0
+  collection: ^1.16.0
   alfred_workflow:
     git:
       url: git@github.com:techouse/alfred_workflow.git
