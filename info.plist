@@ -12,6 +12,31 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>86BD40A7-FBB8-4399-8071-960A0B1A74A1</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>86BD40A7-FBB8-4399-8071-960A0B1A74A1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BBA99647-3C6D-4E29-92A8-A8DC9F32855B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>D850B7E1-B6F7-4A5E-8EF6-522CBF4E0A21</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>3DF7C207-83B5-41BA-9B9F-159F4A4316A9</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -29,9 +54,32 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Nova Docs</string>
+	<string>Laravel Nova Docs</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./docs -u</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BBA99647-3C6D-4E29-92A8-A8DC9F32855B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -58,15 +106,15 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Searching Nova docs for "{query}"...</string>
+				<string>Searching Laravel Nova docs for "{query}"...</string>
 				<key>script</key>
-				<string>/usr/bin/python docs.py "{query}"</string>
+				<string>./docs -q "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
 				<string></string>
 				<key>subtext</key>
-				<string>Search the Nova docs...</string>
+				<string>Search the Laravel Nova docs...</string>
 				<key>title</key>
 				<string>Laravel Nova Docs</string>
 				<key>type</key>
@@ -80,6 +128,36 @@
 			<string>2B939AF4-1A27-4D41-96FE-E75C901C780F</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>update:workflow</string>
+						<key>outputlabel</key>
+						<string>Update Workflow</string>
+						<key>uid</key>
+						<string>D850B7E1-B6F7-4A5E-8EF6-522CBF4E0A21</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Open URL</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>86BD40A7-FBB8-4399-8071-960A0B1A74A1</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -108,22 +186,36 @@
 		<key>2B939AF4-1A27-4D41-96FE-E75C901C780F</key>
 		<dict>
 			<key>xpos</key>
-			<integer>240</integer>
+			<integer>320</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>265</integer>
 		</dict>
 		<key>3DF7C207-83B5-41BA-9B9F-159F4A4316A9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>490</integer>
+			<integer>800</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>450</integer>
+		</dict>
+		<key>86BD40A7-FBB8-4399-8071-960A0B1A74A1</key>
+		<dict>
+			<key>xpos</key>
+			<integer>580</integer>
+			<key>ypos</key>
+			<integer>285</integer>
+		</dict>
+		<key>BBA99647-3C6D-4E29-92A8-A8DC9F32855B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>805</integer>
+			<key>ypos</key>
+			<integer>100</integer>
 		</dict>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.0.10</string>
+	<string>2.0.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/techouse</string>
 </dict>
