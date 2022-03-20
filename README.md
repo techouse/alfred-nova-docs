@@ -40,5 +40,4 @@ major issue that [inhibits a user from opening a web browser window once they pr
 a lot with Laravel Nova recently I figured it would be nice to still have a working Alfred workflow for Laravel Nova's docs. But since Bill's original Alfred workflow was written in 
 PHP and I wrote mine in Python a pull request would not have made much sense.
 
-Built using [Alfred-Workflow](https://github.com/deanishe/alfred-workflow).
 The lightning fast search is powered by [Algolia](https://www.algolia.com) using the same index as the official [Laravel Nova Docs](https://nova.laravel.com/docs/) website.
