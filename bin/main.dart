@@ -60,7 +60,7 @@ void main(List<String> arguments) async {
     }
     version = version.replaceAll('v', '');
 
-    final String queryString = query.join(' ').trim();
+    final String queryString = query.join(' ').trim().toLowerCase();
 
     if (verbose) stdout.writeln('Query: "$queryString"');
 
