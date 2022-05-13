@@ -4,7 +4,7 @@ description: Search the Laravel Nova documentation using Alfred
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
 
-version: 2.0.5
+version: 2.0.6
 
 environment:
   sdk: '>=2.17.0 <3.0.0'
