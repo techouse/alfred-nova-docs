@@ -106,7 +106,7 @@
 				<key>queuemode</key>
 				<integer>1</integer>
 				<key>runningsubtext</key>
-				<string>Searching Laravel Nova docs for "{query}"...</string>
+				<string>Fetching the Laravel Nova documentation ...</string>
 				<key>script</key>
 				<string>arch -x86_64 ./docs -q "{query}"</string>
 				<key>scriptargtype</key>
