@@ -2,7 +2,8 @@ part of 'main.dart';
 
 final HtmlUnescape _unescape = HtmlUnescape();
 
-final AlfredWorkflow _workflow = AlfredWorkflow();
+final AlfredWorkflow _workflow = AlfredWorkflow()
+  ..disableAlfredSmartResultOrdering = true;
 
 final AlfredUpdater _updater = AlfredUpdater(
   githubRepositoryUrl: Uri.parse(Env.githubRepositoryUrl),
@@ -15,7 +16,7 @@ const _updateItem = AlfredItem(
   subtitle: 'Press <enter> to auto-update to a new version of this workflow.',
   arg: 'update:workflow',
   match:
-  'Auto-Update available! Press <enter> to auto-update to a new version of this workflow.',
+      'Auto-Update available! Press <enter> to auto-update to a new version of this workflow.',
   icon: AlfredItemIcon(path: 'alfredhatcog.png'),
   valid: true,
 );
@@ -38,7 +39,7 @@ Future<void> _performSearch(String query, {String? version}) async {
   if (snapshot.nbHits > 0) {
     final AlfredItems items = AlfredItems(
       snapshot.hits.map((snapshot) => SearchResult.fromJson(snapshot.data)).map(
-            (result) {
+        (result) {
           final String title = _unescape.convert(result.hierarchy.last);
           final String subtitle = result.content != null
               ? _unescape.convert(result.content!).truncate(75)
@@ -63,7 +64,7 @@ Future<void> _performSearch(String query, {String? version}) async {
     _workflow.addItems(items.items);
   } else {
     final Uri url =
-    Uri.https('www.google.com', '/search', {'q': 'Laravel Nova $query'});
+        Uri.https('www.google.com', '/search', {'q': 'Laravel Nova $query'});
 
     _workflow.addItem(
       AlfredItem(
