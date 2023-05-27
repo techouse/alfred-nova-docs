@@ -31,7 +31,6 @@ class SearchResult {
     'content',
     'type',
     'url',
-    'anchor',
   ];
 
   factory SearchResult.fromJson(Map<String, dynamic> json) =>
