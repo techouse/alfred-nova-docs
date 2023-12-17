@@ -8,7 +8,8 @@ import 'package:alfred_workflow/alfred_workflow.dart'
         AlfredItems,
         AlfredUpdater,
         AlfredWorkflow;
-import 'package:algolia/algolia.dart' show AlgoliaQuerySnapshot;
+import 'package:algoliasearch/src/model/hit.dart';
+import 'package:algoliasearch/src/model/search_response.dart';
 import 'package:args/args.dart' show ArgParser, ArgResults;
 import 'package:cli_script/cli_script.dart';
 import 'package:collection/collection.dart' show IterableExtension;
@@ -64,7 +65,7 @@ void main(List<String> arguments) {
       if (queryString.isEmpty) {
         _showPlaceholder();
       } else {
-        _workflow.cacheKey = '${queryString}_${version}';
+        _workflow.cacheKey = '${queryString}_$version';
         if (await _workflow.getItems() == null) {
           await _performSearch(queryString, version: version);
         }
